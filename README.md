@@ -7,6 +7,7 @@ Terraform provides a common configuration to launch infrastructure — from phys
 
 Simple file based configuration gives you a single view of your entire infrastructure.
 
+
 [http://www.terraform.io/](http://www.terraform.io/)
 
 ## Dockerfile
