@@ -24,6 +24,13 @@ test:
                  -w /data/uat \
                  -e AWS_DEFAULT_REGION=us-east-1 \
                  -e CHECKPOINT_DISABLE=1 \
+                 ${DOCKER_IMAGE} init
+    - |
+      docker run -v ~/.aws:/root/.aws \
+                 -v `pwd`:/data \
+                 -w /data/uat \
+                 -e AWS_DEFAULT_REGION=us-east-1 \
+                 -e CHECKPOINT_DISABLE=1 \
                  ${DOCKER_IMAGE} plan
     - |
       docker run -v ~/.aws:/root/.aws \
