@@ -1,6 +1,6 @@
 machine:
   environment:
-    TF_VERSION: 0.9.11
+    TF_VERSION: 0.10.0
     DOCKER_IMAGE: 'unifio/terraform'
   services:
     - docker
@@ -18,6 +18,13 @@ dependencies:
 test:
   override:
     - docker run -e CHECKPOINT_DISABLE=1 ${DOCKER_IMAGE} version
+    - |
+      docker run -v ~/.aws:/root/.aws \
+                 -v `pwd`:/data \
+                 -w /data/uat \
+                 -e AWS_DEFAULT_REGION=us-east-1 \
+                 -e CHECKPOINT_DISABLE=1 \
+                 ${DOCKER_IMAGE} init
     - |
       docker run -v ~/.aws:/root/.aws \
                  -v `pwd`:/data \
