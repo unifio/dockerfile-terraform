@@ -1,6 +1,6 @@
 machine:
   environment:
-    TF_VERSION: 0.10.6
+    TF_VERSION: 0.10.7
     DOCKER_IMAGE: 'unifio/terraform'
   services:
     - docker
